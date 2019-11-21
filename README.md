@@ -1,7 +1,7 @@
 ofxISF
 ================
 
-
+Windows build need ```/bigobj``` added to the C++ commandline options in the project properties. 
 
 Submodules
 --------
