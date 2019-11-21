@@ -6,8 +6,8 @@ ofxISF
 Submodules
 --------
 [VVISF-GL](https://github.com/mrRay/VVISF-GL)
-'''git submodule init'''
-'''git submodule update'''
+```git submodule init```
+```git submodule update```
 
 Further Steps
 -------------
