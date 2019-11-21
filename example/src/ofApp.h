@@ -1,10 +1,7 @@
 #pragma once
 
 #include "ofMain.h"
-#include "VVISF.hpp"
-
-
-
+#include "ofxISFScene.h"
 
 class ofApp : public ofBaseApp{
 
@@ -35,23 +32,10 @@ class ofApp : public ofBaseApp{
 		//ISFValType_Cube,	//!<	Sends a long- the texture number (like GL_TEXTURE0) of a cubemap texture to pass to the shader
 		//ISFValType_Image,
 
-		void setup(string name, float width, float height);
-		void setInput(string name, bool val);
-		void setInput(string name, long val);
-		void setInput(string name, float val);
-		void setInput(string name, ofVec2f val);
-		void setInput(string name, ofFloatColor val);
-		void setInput(string name, ofTexture val);
-		
-		void draw(float x, float y, float width, float height);
+		ofxISFScene scene;
 
-		VVISF::ISFDocRef mDoc;
-		VVISF::ISFSceneRef	renderScene;
-		VVGL::GLBufferPoolRef	bp;
-		VVGL::GLBufferRef mGLBuff;
-		ofTexture mTex;
-		
-		
+
+
 		ofFbo mTest;
 		ofVideoGrabber grabber;
 
