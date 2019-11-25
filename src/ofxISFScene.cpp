@@ -95,8 +95,10 @@ void ofxISFScene::setInput(string name, ofTexture val) {
 }
 
 //--------------------------------------------------------------
-void ofxISFScene::draw(float x, float y, float width, float height){
-
+void ofxISFScene::draw(float x, float y){
+	ofPushView();
+	ofViewport(ofRectangle(x, y, getWidth(), getHeight()));
 	renderScene->renderToBuffer(mGLBuff, mGLBuff->size);
-	mTex.draw(x, y, width, height);
+	ofPopView();
+	mTex.draw(x, y);
 }

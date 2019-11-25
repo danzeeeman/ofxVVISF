@@ -12,7 +12,7 @@ class ofxISFScene{
         void setInput(string name, ofFloatColor val);
         void setInput(string name, ofTexture val);
             
-        void draw(float x, float y, float width, float height);
+        void draw(float x, float y);
 
 		int getHeight() {
 			return mTex.getHeight();

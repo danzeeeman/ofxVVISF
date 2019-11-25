@@ -24,11 +24,9 @@ void ofApp::update(){
 
 //--------------------------------------------------------------
 void ofApp::draw(){
-	ofPushView();
-	ofPushMatrix();
-	scene.draw(0, 0, ofGetWidth(), ofGetHeight());
-	ofPopMatrix();
-	ofPopView();
+
+	scene.draw(0, 0);
+
 	gui.draw();
 }
 
