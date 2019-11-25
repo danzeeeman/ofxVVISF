@@ -24,7 +24,7 @@ Installation
     ```git submodule init``` 
     
     ```git submodule update```
- - Create a project with the project generator or create the projects for the examples
+ - Create a project with the project generator or create a projects by copying the examples
  - When creating a project you need to add preprocessor defines to enable the `VVGL_SDK_GLFW` flag.
 
  ![](images/VVGL_SDK_GLFW.PNG)
