@@ -1,11 +1,11 @@
 #include "ofxISFScene.h"
 using namespace VVGL;
 using namespace VVISF;
-void ofxISFScene::setup(string name, float width, float height){
+void ofxISFScene::setup(string path, float width, float height){
 	GLContextRef    ctxRef = CreateGLContextRefUsing((GLFWwindow*)((ofAppGLFWWindow*)ofGetWindowPtr())->getWindowContext());
 	bp = CreateGlobalBufferPool(ctxRef->newContextSharingMe());
 	renderScene = CreateISFSceneRefUsing(ctxRef->newContextSharingMe());
-	renderScene->useFile(ofToDataPath(name));
+	renderScene->useFile(ofToDataPath(path));
 	mDoc = renderScene->doc();
 	mGLBuff = CreateRGBATex(Size(width, height), true, GetGlobalBufferPool());
 	mTex.setUseExternalTextureID(mGLBuff->name);
@@ -19,7 +19,6 @@ void ofxISFScene::setup(string name, float width, float height){
 	mTex.texData.glInternalFormat = mGLBuff->desc.internalFormat;
 	mTex.texData.bFlipTexture = mGLBuff->flipped;
 	mTex.texData.bAllocated = TRUE;
-
 }
 
 void ofxISFScene::setInput(string name, bool val) {
@@ -30,6 +29,10 @@ void ofxISFScene::setInput(string name, bool val) {
 	}
 	ISFVal value = ISFBoolVal(val);
 	intVal->setCurrentVal(value);
+}
+
+ofTexture ofxISFScene::getTextureRef() {
+	return mTex;
 }
 
 void  ofxISFScene::setInput(string name, long val) {
