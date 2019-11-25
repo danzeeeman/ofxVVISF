@@ -4,9 +4,9 @@ ofxVVISF
 
 Introduction
 ------------
-This openFrameworks addon wraps the [VVISF-GL](https://github.com/mrRay/VVISF-GL) cpp library from [VIDVOX](http://vidvox.com).  
+This openFrameworks addon wraps the [VVISF-GL](https://github.com/mrRay/VVISF-GL) cpp library from [VIDVOX](http://vidvox.com).  It allows you to use [ISF files](https://github.com/vidvox/ISF-FILES) inside openFrameworks with a simple setup. 
 
-### VVGL
+### VVISF
 ISF stands for "Interactive Shader Format", and is a file format that describes a GLSL fragment shader, as well as how to execute and interact with it (the official specification can be found here). VVISF is a cross-platform c++ library that implements the ISF protocol with support for a number of common SDKs (OS X, iOS, GLFW, and Qt) and GL environments (most versions of GL- both ES and desktop- are supported).
 
 ### VVGL
