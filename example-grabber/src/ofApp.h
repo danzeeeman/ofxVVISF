@@ -25,7 +25,6 @@ class ofApp : public ofBaseApp{
 		ofxISFScene scene;
 		ofVideoGrabber grabber;
 		ofParameterGroup group;
-		ofParameter<int> sampleMode;
 		ofParameter<int> colorMode;
 		ofParameter<int> colorCount;
 		ofParameter<ofFloatColor> baseColor;
