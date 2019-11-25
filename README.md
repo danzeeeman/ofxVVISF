@@ -27,14 +27,14 @@ Installation
  - Create a project with the project generator or create the projects for the examples
  - When creating a project you need to add preprocessor defines to enable the `VVGL_SDK_GLFW` flag.
 
- ![](images\VVGL_SDK_GLFW.PNG)
+ ![](images/VVGL_SDK_GLFW.PNG)
  - Edit the command line options to add `/bigobj`
- ![](images\bigobj.PNG)
+ ![](images/bigobj.PNG)
  - ESnjoy!
 Examples
 ------------
 ### example-grabber
-![header](images\example-grabber.PNG)
+![](images/example-grabber.PNG)
 
 
 Compatibility
