@@ -14,14 +14,14 @@ class ofxISFScene{
             
         void draw(float x, float y);
 
-		int getHeight() {
-			return mTex.getHeight();
-		}
-		int getWidth() {
-			return mTex.getWidth();
-		}
+	int getHeight() {
+		return mTex.getHeight();
+	}
+	int getWidth() {
+		return mTex.getWidth();
+	}
 
-		ofTexture getTextureRef();
+	ofTexture getTextureRef();
 
 	protected:
         VVISF::ISFDocRef mDoc;
