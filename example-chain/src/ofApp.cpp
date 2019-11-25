@@ -3,7 +3,7 @@
 //--------------------------------------------------------------
 void ofApp::setup(){
 	ofDisableArbTex();
-	ofSetWindowShape(640*2, 480);
+	ofSetWindowShape(640, 480);
 	grabber.setup(640, 480);
 	autoColor.setup("auto color tune.fs", 640, 480);
 	boxinator.setup("boxinator.fs", 640, 480);
@@ -38,13 +38,13 @@ void ofApp::update(){
 	boxinator.setInput("randomize", randomize.get());
 	boxinator.setInput("gamma", gamma.get());
 	boxinator.setInput("grid", grid.get());
-
+	autoColor.update();
+	boxinator.update();
 }
 
 //--------------------------------------------------------------
 void ofApp::draw(){
-	autoColor.draw(0, 0);
-	boxinator.draw(640, 0);
+	boxinator.draw(0, 0);
 	gui.draw();
 }
 

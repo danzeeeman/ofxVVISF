@@ -93,12 +93,13 @@ void ofxISFScene::setInput(string name, ofTexture val) {
 	ISFVal value = ISFImageVal(ref);
 	imageAttr->setCurrentVal(value);
 }
-
-//--------------------------------------------------------------
-void ofxISFScene::draw(float x, float y){
+void ofxISFScene::update(){
 	ofPushView();
-	ofViewport(ofRectangle(x, y, getWidth(), getHeight()));
+	ofViewport(ofRectangle(0, 0, getWidth(), getHeight()));
 	renderScene->renderToBuffer(mGLBuff, mGLBuff->size);
 	ofPopView();
+}
+//--------------------------------------------------------------
+void ofxISFScene::draw(float x, float y){
 	mTex.draw(x, y);
 }

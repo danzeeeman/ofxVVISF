@@ -20,6 +20,7 @@ void ofApp::update(){
 	scene.setInput("colorModeOverride",(long) colorMode.get());
 	scene.setInput("colorCount", (long)colorCount.get());
 	scene.setInput("baseColor", baseColor.get());
+	scene.update();
 }
 
 //--------------------------------------------------------------

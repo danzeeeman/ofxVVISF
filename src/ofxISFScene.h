@@ -5,6 +5,7 @@
 class ofxISFScene{
     public:
         void setup(string path, float width, float height);
+		void update();
         void setInput(string name, bool val);
         void setInput(string name, long val);
         void setInput(string name, float val);
