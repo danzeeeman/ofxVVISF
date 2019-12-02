@@ -23,9 +23,6 @@ void ofApp::setup(){
 	boxGroup.add(grid.set("Grid Size", ofVec2f(64.5, 64.5), ofVec2f(1.5, 1.5), ofVec2f(900, 600)));
 
 	gui.add(boxGroup);
-
-
-	sender.init("VVISF");
 }
 
 //--------------------------------------------------------------
@@ -49,10 +46,7 @@ void ofApp::update(){
 void ofApp::draw(){
 	boxinator.draw(0, 0);
 	gui.draw();
-
-	sender.send(boxinator.getTextureRef);
 }
-
 
 //--------------------------------------------------------------
 void ofApp::keyPressed(int key){
