@@ -1,2 +1,2 @@
 ofxGui
-ofxISF
+ofxVVISF

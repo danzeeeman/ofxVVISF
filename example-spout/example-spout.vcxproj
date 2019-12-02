@@ -1,0 +1,262 @@
+<?xml version="1.0"?>
+<Project DefaultTargets="Build" ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+	<ItemGroup Label="ProjectConfigurations">
+		<ProjectConfiguration Include="Debug|Win32">
+			<Configuration>Debug</Configuration>
+			<Platform>Win32</Platform>
+		</ProjectConfiguration>
+		<ProjectConfiguration Include="Debug|x64">
+			<Configuration>Debug</Configuration>
+			<Platform>x64</Platform>
+		</ProjectConfiguration>
+		<ProjectConfiguration Include="Release|Win32">
+			<Configuration>Release</Configuration>
+			<Platform>Win32</Platform>
+		</ProjectConfiguration>
+		<ProjectConfiguration Include="Release|x64">
+			<Configuration>Release</Configuration>
+			<Platform>x64</Platform>
+		</ProjectConfiguration>
+	</ItemGroup>
+	<PropertyGroup Condition="'$(WindowsTargetPlatformVersion)'==''">
+		<LatestTargetPlatformVersion>$([Microsoft.Build.Utilities.ToolLocationHelper]::GetLatestSDKTargetPlatformVersion('Windows', '10.0'))</LatestTargetPlatformVersion>
+		<WindowsTargetPlatformVersion Condition="'$(WindowsTargetPlatformVersion)' == ''">$(LatestTargetPlatformVersion)</WindowsTargetPlatformVersion>
+		<TargetPlatformVersion>$(WindowsTargetPlatformVersion)</TargetPlatformVersion>
+	</PropertyGroup>
+	<PropertyGroup Label="Globals">
+		<ProjectGuid>{7FD42DF7-442E-479A-BA76-D0022F99702A}</ProjectGuid>
+		<Keyword>Win32Proj</Keyword>
+		<RootNamespace>example-spout</RootNamespace>
+	</PropertyGroup>
+	<Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+		<ConfigurationType>Application</ConfigurationType>
+		<CharacterSet>Unicode</CharacterSet>
+		<PlatformToolset>v141</PlatformToolset>
+	</PropertyGroup>
+	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+		<ConfigurationType>Application</ConfigurationType>
+		<CharacterSet>Unicode</CharacterSet>
+		<PlatformToolset>v141</PlatformToolset>
+	</PropertyGroup>
+	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+		<ConfigurationType>Application</ConfigurationType>
+		<CharacterSet>Unicode</CharacterSet>
+		<WholeProgramOptimization>true</WholeProgramOptimization>
+		<PlatformToolset>v141</PlatformToolset>
+	</PropertyGroup>
+	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+		<ConfigurationType>Application</ConfigurationType>
+		<CharacterSet>Unicode</CharacterSet>
+		<WholeProgramOptimization>true</WholeProgramOptimization>
+		<PlatformToolset>v141</PlatformToolset>
+	</PropertyGroup>
+	<Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+	<ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="PropertySheets">
+		<Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+		<Import Project="..\..\..\libs\openFrameworksCompiled\project\vs\openFrameworksRelease.props" />
+	</ImportGroup>
+	<ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="PropertySheets">
+		<Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+		<Import Project="..\..\..\libs\openFrameworksCompiled\project\vs\openFrameworksRelease.props" />
+	</ImportGroup>
+	<ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="PropertySheets">
+		<Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+		<Import Project="..\..\..\libs\openFrameworksCompiled\project\vs\openFrameworksDebug.props" />
+	</ImportGroup>
+	<ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="PropertySheets">
+		<Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+		<Import Project="..\..\..\libs\openFrameworksCompiled\project\vs\openFrameworksDebug.props" />
+	</ImportGroup>
+	<PropertyGroup Label="UserMacros" />
+	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+		<OutDir>bin\</OutDir>
+		<IntDir>obj\$(Platform)\$(Configuration)\</IntDir>
+		<TargetName>$(ProjectName)_debug</TargetName>
+		<LinkIncremental>true</LinkIncremental>
+		<GenerateManifest>true</GenerateManifest>
+	</PropertyGroup>
+	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+		<OutDir>bin\</OutDir>
+		<IntDir>obj\$(Platform)\$(Configuration)\</IntDir>
+		<TargetName>$(ProjectName)_debug</TargetName>
+		<LinkIncremental>true</LinkIncremental>
+		<GenerateManifest>true</GenerateManifest>
+	</PropertyGroup>
+	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+		<OutDir>bin\</OutDir>
+		<IntDir>obj\$(Platform)\$(Configuration)\</IntDir>
+		<LinkIncremental>false</LinkIncremental>
+	</PropertyGroup>
+	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+		<OutDir>bin\</OutDir>
+		<IntDir>obj\$(Platform)\$(Configuration)\</IntDir>
+		<LinkIncremental>false</LinkIncremental>
+	</PropertyGroup>
+	<ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+		<ClCompile>
+			<Optimization>Disabled</Optimization>
+			<BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
+			<PreprocessorDefinitions>%(PreprocessorDefinitions)</PreprocessorDefinitions>
+			<RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+			<WarningLevel>Level3</WarningLevel>
+			<AdditionalIncludeDirectories>%(AdditionalIncludeDirectories);..\..\..\addons\ofxISF\libs;..\..\..\addons\ofxISF\libs\VVISF-GL;..\..\..\addons\ofxISF\libs\VVISF-GL\.git;..\..\..\addons\ofxISF\libs\VVISF-GL\.git\hooks;..\..\..\addons\ofxISF\libs\VVISF-GL\.git\info;..\..\..\addons\ofxISF\libs\VVISF-GL\.git\logs;..\..\..\addons\ofxISF\libs\VVISF-GL\.git\logs\refs;..\..\..\addons\ofxISF\libs\VVISF-GL\.git\logs\refs\heads;..\..\..\addons\ofxISF\libs\VVISF-GL\.git\logs\refs\remotes;..\..\..\addons\ofxISF\libs\VVISF-GL\.git\logs\refs\remotes\origin;..\..\..\addons\ofxISF\libs\VVISF-GL\.git\objects;..\..\..\addons\ofxISF\libs\VVISF-GL\.git\objects\02;..\..\..\addons\ofxISF\libs\VVISF-GL\.git\objects\08;..\..\..\addons\ofxISF\libs\VVISF-GL\.git\objects\0e;..\..\..\addons\ofxISF\libs\VVISF-GL\.git\objects\14;..\..\..\addons\ofxISF\libs\VVISF-GL\.git\objects\16;..\..\..\addons\ofxISF\libs\VVISF-GL\.git\objects\17;..\..\..\addons\ofxISF\libs\VVISF-GL\.git\objects\1b;..\..\..\addons\ofxISF\libs\VVISF-GL\.git\objects\21;..\..\..\addons\ofxISF\libs\VVISF-GL\.git\objects\23;..\..\..\addons\ofxISF\libs\VVISF-GL\.git\objects\28;..\..\..\addons\ofxISF\libs\VVISF-GL\.git\objects\2a;..\..\..\addons\ofxISF\libs\VVISF-GL\.git\objects\2b;..\..\..\addons\ofxISF\libs\VVISF-GL\.git\objects\2f;..\..\..\addons\ofxISF\libs\VVISF-GL\.git\objects\38;..\..\..\addons\ofxISF\libs\VVISF-GL\.git\objects\3f;..\..\..\addons\ofxISF\libs\VVISF-GL\.git\objects\50;..\..\..\addons\ofxISF\libs\VVISF-GL\.git\objects\52;..\..\..\addons\ofxISF\libs\VVISF-GL\.git\objects\55;..\..\..\addons\ofxISF\libs\VVISF-GL\.git\objects\57;..\..\..\addons\ofxISF\libs\VVISF-GL\.git\objects\67;..\..\..\addons\ofxISF\libs\VVISF-GL\.git\objects\6a;..\..\..\addons\ofxISF\libs\VVISF-GL\.git\objects\74;..\..\..\addons\ofxISF\libs\VVISF-GL\.git\objects\79;..\..\..\addons\ofxISF\libs\VVISF-GL\.git\objects\7c;..\..\..\addons\ofxISF\libs\VVISF-GL\.git\objects\83;..\..\..\addons\ofxISF\libs\VVISF-GL\.git\objects\8e;..\..\..\addons\ofxISF\libs\VVISF-GL\.git\objects\8f;..\..\..\addons\ofxISF\libs\VVISF-GL\.git\objects\95;..\..\..\addons\ofxISF\libs\VVISF-GL\.git\objects\9b;..\..\..\addons\ofxISF\libs\VVISF-GL\.git\objects\9c;..\..\..\addons\ofxISF\libs\VVISF-GL\.git\objects\9f;..\..\..\addons\ofxISF\libs\VVISF-GL\.git\objects\a2;..\..\..\addons\ofxISF\libs\VVISF-GL\.git\objects\a5;..\..\..\addons\ofxISF\libs\VVISF-GL\.git\objects\a7;..\..\..\addons\ofxISF\libs\VVISF-GL\.git\objects\ac;..\..\..\addons\ofxISF\libs\VVISF-GL\.git\objects\c8;..\..\..\addons\ofxISF\libs\VVISF-GL\.git\objects\d5;..\..\..\addons\ofxISF\libs\VVISF-GL\.git\objects\d7;..\..\..\addons\ofxISF\libs\VVISF-GL\.git\objects\da;..\..\..\addons\ofxISF\libs\VVISF-GL\.git\objects\e7;..\..\..\addons\ofxISF\libs\VVISF-GL\.git\objects\f4;..\..\..\addons\ofxISF\libs\VVISF-GL\.git\objects\info;..\..\..\addons\ofxISF\libs\VVISF-GL\.git\objects\pack;..\..\..\addons\ofxISF\libs\VVISF-GL\.git\refs;..\..\..\addons\ofxISF\libs\VVISF-GL\.git\refs\heads;..\..\..\addons\ofxISF\libs\VVISF-GL\.git\refs\remotes;..\..\..\addons\ofxISF\libs\VVISF-GL\.git\refs\remotes\origin;..\..\..\addons\ofxISF\libs\VVISF-GL\.git\refs\tags;..\..\..\addons\ofxISF\libs\VVISF-GL\VVGL;..\..\..\addons\ofxISF\libs\VVISF-GL\VVGL\include;..\..\..\addons\ofxISF\libs\VVISF-GL\VVGL\include\stb;..\..\..\addons\ofxISF\libs\VVISF-GL\VVGL\src;..\..\..\addons\ofxISF\libs\VVISF-GL\VVISF;..\..\..\addons\ofxISF\libs\VVISF-GL\VVISF\include;..\..\..\addons\ofxISF\libs\VVISF-GL\VVISF\include\exprtk;..\..\..\addons\ofxISF\libs\VVISF-GL\VVISF\include\nlohmann_json;..\..\..\addons\ofxISF\libs\VVISF-GL\VVISF\src;..\..\..\addons\ofxISF\libs\VVISF-GL\examples;..\..\..\addons\ofxISF\libs\VVISF-GL\external;..\..\..\addons\ofxISF\src;..\..\..\addons\ofxISF\libs\VVISF-GL\VVGL\include\</AdditionalIncludeDirectories>
+			<CompileAs>CompileAsCpp</CompileAs>
+			<ObjectFileName>$(IntDir)</ObjectFileName>
+		</ClCompile>
+		<Link>
+			<GenerateDebugInformation>true</GenerateDebugInformation>
+			<SubSystem>Console</SubSystem>
+			<RandomizedBaseAddress>false</RandomizedBaseAddress>
+			<AdditionalDependencies>%(AdditionalDependencies)</AdditionalDependencies>
+			<AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+		</Link>
+		<PostBuildEvent />
+	</ItemDefinitionGroup>
+	<ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+		<ClCompile>
+			<Optimization>Disabled</Optimization>
+			<BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
+			<PreprocessorDefinitions>%(PreprocessorDefinitions)</PreprocessorDefinitions>
+			<RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+			<WarningLevel>Level3</WarningLevel>
+			<AdditionalIncludeDirectories>%(AdditionalIncludeDirectories);..\..\..\addons\ofxISF\libs;..\..\..\addons\ofxISF\libs\VVISF-GL;..\..\..\addons\ofxISF\libs\VVISF-GL\.git;..\..\..\addons\ofxISF\libs\VVISF-GL\.git\hooks;..\..\..\addons\ofxISF\libs\VVISF-GL\.git\info;..\..\..\addons\ofxISF\libs\VVISF-GL\.git\logs;..\..\..\addons\ofxISF\libs\VVISF-GL\.git\logs\refs;..\..\..\addons\ofxISF\libs\VVISF-GL\.git\logs\refs\heads;..\..\..\addons\ofxISF\libs\VVISF-GL\.git\logs\refs\remotes;..\..\..\addons\ofxISF\libs\VVISF-GL\.git\logs\refs\remotes\origin;..\..\..\addons\ofxISF\libs\VVISF-GL\.git\objects;..\..\..\addons\ofxISF\libs\VVISF-GL\.git\objects\02;..\..\..\addons\ofxISF\libs\VVISF-GL\.git\objects\08;..\..\..\addons\ofxISF\libs\VVISF-GL\.git\objects\0e;..\..\..\addons\ofxISF\libs\VVISF-GL\.git\objects\14;..\..\..\addons\ofxISF\libs\VVISF-GL\.git\objects\16;..\..\..\addons\ofxISF\libs\VVISF-GL\.git\objects\17;..\..\..\addons\ofxISF\libs\VVISF-GL\.git\objects\1b;..\..\..\addons\ofxISF\libs\VVISF-GL\.git\objects\21;..\..\..\addons\ofxISF\libs\VVISF-GL\.git\objects\23;..\..\..\addons\ofxISF\libs\VVISF-GL\.git\objects\28;..\..\..\addons\ofxISF\libs\VVISF-GL\.git\objects\2a;..\..\..\addons\ofxISF\libs\VVISF-GL\.git\objects\2b;..\..\..\addons\ofxISF\libs\VVISF-GL\.git\objects\2f;..\..\..\addons\ofxISF\libs\VVISF-GL\.git\objects\38;..\..\..\addons\ofxISF\libs\VVISF-GL\.git\objects\3f;..\..\..\addons\ofxISF\libs\VVISF-GL\.git\objects\50;..\..\..\addons\ofxISF\libs\VVISF-GL\.git\objects\52;..\..\..\addons\ofxISF\libs\VVISF-GL\.git\objects\55;..\..\..\addons\ofxISF\libs\VVISF-GL\.git\objects\57;..\..\..\addons\ofxISF\libs\VVISF-GL\.git\objects\67;..\..\..\addons\ofxISF\libs\VVISF-GL\.git\objects\6a;..\..\..\addons\ofxISF\libs\VVISF-GL\.git\objects\74;..\..\..\addons\ofxISF\libs\VVISF-GL\.git\objects\79;..\..\..\addons\ofxISF\libs\VVISF-GL\.git\objects\7c;..\..\..\addons\ofxISF\libs\VVISF-GL\.git\objects\83;..\..\..\addons\ofxISF\libs\VVISF-GL\.git\objects\8e;..\..\..\addons\ofxISF\libs\VVISF-GL\.git\objects\8f;..\..\..\addons\ofxISF\libs\VVISF-GL\.git\objects\95;..\..\..\addons\ofxISF\libs\VVISF-GL\.git\objects\9b;..\..\..\addons\ofxISF\libs\VVISF-GL\.git\objects\9c;..\..\..\addons\ofxISF\libs\VVISF-GL\.git\objects\9f;..\..\..\addons\ofxISF\libs\VVISF-GL\.git\objects\a2;..\..\..\addons\ofxISF\libs\VVISF-GL\.git\objects\a5;..\..\..\addons\ofxISF\libs\VVISF-GL\.git\objects\a7;..\..\..\addons\ofxISF\libs\VVISF-GL\.git\objects\ac;..\..\..\addons\ofxISF\libs\VVISF-GL\.git\objects\c8;..\..\..\addons\ofxISF\libs\VVISF-GL\.git\objects\d5;..\..\..\addons\ofxISF\libs\VVISF-GL\.git\objects\d7;..\..\..\addons\ofxISF\libs\VVISF-GL\.git\objects\da;..\..\..\addons\ofxISF\libs\VVISF-GL\.git\objects\e7;..\..\..\addons\ofxISF\libs\VVISF-GL\.git\objects\f4;..\..\..\addons\ofxISF\libs\VVISF-GL\.git\objects\info;..\..\..\addons\ofxISF\libs\VVISF-GL\.git\objects\pack;..\..\..\addons\ofxISF\libs\VVISF-GL\.git\refs;..\..\..\addons\ofxISF\libs\VVISF-GL\.git\refs\heads;..\..\..\addons\ofxISF\libs\VVISF-GL\.git\refs\remotes;..\..\..\addons\ofxISF\libs\VVISF-GL\.git\refs\remotes\origin;..\..\..\addons\ofxISF\libs\VVISF-GL\.git\refs\tags;..\..\..\addons\ofxISF\libs\VVISF-GL\VVGL;..\..\..\addons\ofxISF\libs\VVISF-GL\VVGL\include;..\..\..\addons\ofxISF\libs\VVISF-GL\VVGL\include\stb;..\..\..\addons\ofxISF\libs\VVISF-GL\VVGL\src;..\..\..\addons\ofxISF\libs\VVISF-GL\VVISF;..\..\..\addons\ofxISF\libs\VVISF-GL\VVISF\include;..\..\..\addons\ofxISF\libs\VVISF-GL\VVISF\include\exprtk;..\..\..\addons\ofxISF\libs\VVISF-GL\VVISF\include\nlohmann_json;..\..\..\addons\ofxISF\libs\VVISF-GL\VVISF\src;..\..\..\addons\ofxISF\libs\VVISF-GL\examples;..\..\..\addons\ofxISF\libs\VVISF-GL\external;..\..\..\addons\ofxISF\src;..\..\..\addons\ofxISF\libs\VVISF-GL\VVGL\include\</AdditionalIncludeDirectories>
+			<CompileAs>CompileAsCpp</CompileAs>
+			<MultiProcessorCompilation>true</MultiProcessorCompilation>
+			<ObjectFileName>$(IntDir)</ObjectFileName>
+		</ClCompile>
+		<Link>
+			<GenerateDebugInformation>true</GenerateDebugInformation>
+			<SubSystem>Console</SubSystem>
+			<RandomizedBaseAddress>false</RandomizedBaseAddress>
+			<AdditionalDependencies>%(AdditionalDependencies)</AdditionalDependencies>
+			<AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+		</Link>
+		<PostBuildEvent />
+	</ItemDefinitionGroup>
+	<ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+		<ClCompile>
+			<WholeProgramOptimization>false</WholeProgramOptimization>
+			<PreprocessorDefinitions>%(PreprocessorDefinitions)</PreprocessorDefinitions>
+			<RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+			<WarningLevel>Level3</WarningLevel>
+			<AdditionalIncludeDirectories>%(AdditionalIncludeDirectories);..\..\..\addons\ofxISF\libs;..\..\..\addons\ofxISF\libs\VVISF-GL;..\..\..\addons\ofxISF\libs\VVISF-GL\.git;..\..\..\addons\ofxISF\libs\VVISF-GL\.git\hooks;..\..\..\addons\ofxISF\libs\VVISF-GL\.git\info;..\..\..\addons\ofxISF\libs\VVISF-GL\.git\logs;..\..\..\addons\ofxISF\libs\VVISF-GL\.git\logs\refs;..\..\..\addons\ofxISF\libs\VVISF-GL\.git\logs\refs\heads;..\..\..\addons\ofxISF\libs\VVISF-GL\.git\logs\refs\remotes;..\..\..\addons\ofxISF\libs\VVISF-GL\.git\logs\refs\remotes\origin;..\..\..\addons\ofxISF\libs\VVISF-GL\.git\objects;..\..\..\addons\ofxISF\libs\VVISF-GL\.git\objects\02;..\..\..\addons\ofxISF\libs\VVISF-GL\.git\objects\08;..\..\..\addons\ofxISF\libs\VVISF-GL\.git\objects\0e;..\..\..\addons\ofxISF\libs\VVISF-GL\.git\objects\14;..\..\..\addons\ofxISF\libs\VVISF-GL\.git\objects\16;..\..\..\addons\ofxISF\libs\VVISF-GL\.git\objects\17;..\..\..\addons\ofxISF\libs\VVISF-GL\.git\objects\1b;..\..\..\addons\ofxISF\libs\VVISF-GL\.git\objects\21;..\..\..\addons\ofxISF\libs\VVISF-GL\.git\objects\23;..\..\..\addons\ofxISF\libs\VVISF-GL\.git\objects\28;..\..\..\addons\ofxISF\libs\VVISF-GL\.git\objects\2a;..\..\..\addons\ofxISF\libs\VVISF-GL\.git\objects\2b;..\..\..\addons\ofxISF\libs\VVISF-GL\.git\objects\2f;..\..\..\addons\ofxISF\libs\VVISF-GL\.git\objects\38;..\..\..\addons\ofxISF\libs\VVISF-GL\.git\objects\3f;..\..\..\addons\ofxISF\libs\VVISF-GL\.git\objects\50;..\..\..\addons\ofxISF\libs\VVISF-GL\.git\objects\52;..\..\..\addons\ofxISF\libs\VVISF-GL\.git\objects\55;..\..\..\addons\ofxISF\libs\VVISF-GL\.git\objects\57;..\..\..\addons\ofxISF\libs\VVISF-GL\.git\objects\67;..\..\..\addons\ofxISF\libs\VVISF-GL\.git\objects\6a;..\..\..\addons\ofxISF\libs\VVISF-GL\.git\objects\74;..\..\..\addons\ofxISF\libs\VVISF-GL\.git\objects\79;..\..\..\addons\ofxISF\libs\VVISF-GL\.git\objects\7c;..\..\..\addons\ofxISF\libs\VVISF-GL\.git\objects\83;..\..\..\addons\ofxISF\libs\VVISF-GL\.git\objects\8e;..\..\..\addons\ofxISF\libs\VVISF-GL\.git\objects\8f;..\..\..\addons\ofxISF\libs\VVISF-GL\.git\objects\95;..\..\..\addons\ofxISF\libs\VVISF-GL\.git\objects\9b;..\..\..\addons\ofxISF\libs\VVISF-GL\.git\objects\9c;..\..\..\addons\ofxISF\libs\VVISF-GL\.git\objects\9f;..\..\..\addons\ofxISF\libs\VVISF-GL\.git\objects\a2;..\..\..\addons\ofxISF\libs\VVISF-GL\.git\objects\a5;..\..\..\addons\ofxISF\libs\VVISF-GL\.git\objects\a7;..\..\..\addons\ofxISF\libs\VVISF-GL\.git\objects\ac;..\..\..\addons\ofxISF\libs\VVISF-GL\.git\objects\c8;..\..\..\addons\ofxISF\libs\VVISF-GL\.git\objects\d5;..\..\..\addons\ofxISF\libs\VVISF-GL\.git\objects\d7;..\..\..\addons\ofxISF\libs\VVISF-GL\.git\objects\da;..\..\..\addons\ofxISF\libs\VVISF-GL\.git\objects\e7;..\..\..\addons\ofxISF\libs\VVISF-GL\.git\objects\f4;..\..\..\addons\ofxISF\libs\VVISF-GL\.git\objects\info;..\..\..\addons\ofxISF\libs\VVISF-GL\.git\objects\pack;..\..\..\addons\ofxISF\libs\VVISF-GL\.git\refs;..\..\..\addons\ofxISF\libs\VVISF-GL\.git\refs\heads;..\..\..\addons\ofxISF\libs\VVISF-GL\.git\refs\remotes;..\..\..\addons\ofxISF\libs\VVISF-GL\.git\refs\remotes\origin;..\..\..\addons\ofxISF\libs\VVISF-GL\.git\refs\tags;..\..\..\addons\ofxISF\libs\VVISF-GL\VVGL;..\..\..\addons\ofxISF\libs\VVISF-GL\VVGL\include;..\..\..\addons\ofxISF\libs\VVISF-GL\VVGL\include\stb;..\..\..\addons\ofxISF\libs\VVISF-GL\VVGL\src;..\..\..\addons\ofxISF\libs\VVISF-GL\VVISF;..\..\..\addons\ofxISF\libs\VVISF-GL\VVISF\include;..\..\..\addons\ofxISF\libs\VVISF-GL\VVISF\include\exprtk;..\..\..\addons\ofxISF\libs\VVISF-GL\VVISF\include\nlohmann_json;..\..\..\addons\ofxISF\libs\VVISF-GL\VVISF\src;..\..\..\addons\ofxISF\libs\VVISF-GL\examples;..\..\..\addons\ofxISF\libs\VVISF-GL\external;..\..\..\addons\ofxISF\src;..\..\..\addons\ofxISF\libs\VVISF-GL\VVGL\include\</AdditionalIncludeDirectories>
+			<CompileAs>CompileAsCpp</CompileAs>
+			<MultiProcessorCompilation>true</MultiProcessorCompilation>
+			<ObjectFileName>$(IntDir)</ObjectFileName>
+		</ClCompile>
+		<Link>
+			<IgnoreAllDefaultLibraries>false</IgnoreAllDefaultLibraries>
+			<GenerateDebugInformation>false</GenerateDebugInformation>
+			<SubSystem>Console</SubSystem>
+			<OptimizeReferences>true</OptimizeReferences>
+			<EnableCOMDATFolding>true</EnableCOMDATFolding>
+			<RandomizedBaseAddress>false</RandomizedBaseAddress>
+			<AdditionalDependencies>%(AdditionalDependencies)</AdditionalDependencies>
+			<AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+		</Link>
+		<PostBuildEvent />
+	</ItemDefinitionGroup>
+	<ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+		<ClCompile>
+			<WholeProgramOptimization>false</WholeProgramOptimization>
+			<PreprocessorDefinitions>%(PreprocessorDefinitions)</PreprocessorDefinitions>
+			<RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+			<WarningLevel>Level3</WarningLevel>
+			<AdditionalIncludeDirectories>%(AdditionalIncludeDirectories);..\..\..\addons\ofxISF\libs;..\..\..\addons\ofxISF\libs\VVISF-GL;..\..\..\addons\ofxISF\libs\VVISF-GL\.git;..\..\..\addons\ofxISF\libs\VVISF-GL\.git\hooks;..\..\..\addons\ofxISF\libs\VVISF-GL\.git\info;..\..\..\addons\ofxISF\libs\VVISF-GL\.git\logs;..\..\..\addons\ofxISF\libs\VVISF-GL\.git\logs\refs;..\..\..\addons\ofxISF\libs\VVISF-GL\.git\logs\refs\heads;..\..\..\addons\ofxISF\libs\VVISF-GL\.git\logs\refs\remotes;..\..\..\addons\ofxISF\libs\VVISF-GL\.git\logs\refs\remotes\origin;..\..\..\addons\ofxISF\libs\VVISF-GL\.git\objects;..\..\..\addons\ofxISF\libs\VVISF-GL\.git\objects\02;..\..\..\addons\ofxISF\libs\VVISF-GL\.git\objects\08;..\..\..\addons\ofxISF\libs\VVISF-GL\.git\objects\0e;..\..\..\addons\ofxISF\libs\VVISF-GL\.git\objects\14;..\..\..\addons\ofxISF\libs\VVISF-GL\.git\objects\16;..\..\..\addons\ofxISF\libs\VVISF-GL\.git\objects\17;..\..\..\addons\ofxISF\libs\VVISF-GL\.git\objects\1b;..\..\..\addons\ofxISF\libs\VVISF-GL\.git\objects\21;..\..\..\addons\ofxISF\libs\VVISF-GL\.git\objects\23;..\..\..\addons\ofxISF\libs\VVISF-GL\.git\objects\28;..\..\..\addons\ofxISF\libs\VVISF-GL\.git\objects\2a;..\..\..\addons\ofxISF\libs\VVISF-GL\.git\objects\2b;..\..\..\addons\ofxISF\libs\VVISF-GL\.git\objects\2f;..\..\..\addons\ofxISF\libs\VVISF-GL\.git\objects\38;..\..\..\addons\ofxISF\libs\VVISF-GL\.git\objects\3f;..\..\..\addons\ofxISF\libs\VVISF-GL\.git\objects\50;..\..\..\addons\ofxISF\libs\VVISF-GL\.git\objects\52;..\..\..\addons\ofxISF\libs\VVISF-GL\.git\objects\55;..\..\..\addons\ofxISF\libs\VVISF-GL\.git\objects\57;..\..\..\addons\ofxISF\libs\VVISF-GL\.git\objects\67;..\..\..\addons\ofxISF\libs\VVISF-GL\.git\objects\6a;..\..\..\addons\ofxISF\libs\VVISF-GL\.git\objects\74;..\..\..\addons\ofxISF\libs\VVISF-GL\.git\objects\79;..\..\..\addons\ofxISF\libs\VVISF-GL\.git\objects\7c;..\..\..\addons\ofxISF\libs\VVISF-GL\.git\objects\83;..\..\..\addons\ofxISF\libs\VVISF-GL\.git\objects\8e;..\..\..\addons\ofxISF\libs\VVISF-GL\.git\objects\8f;..\..\..\addons\ofxISF\libs\VVISF-GL\.git\objects\95;..\..\..\addons\ofxISF\libs\VVISF-GL\.git\objects\9b;..\..\..\addons\ofxISF\libs\VVISF-GL\.git\objects\9c;..\..\..\addons\ofxISF\libs\VVISF-GL\.git\objects\9f;..\..\..\addons\ofxISF\libs\VVISF-GL\.git\objects\a2;..\..\..\addons\ofxISF\libs\VVISF-GL\.git\objects\a5;..\..\..\addons\ofxISF\libs\VVISF-GL\.git\objects\a7;..\..\..\addons\ofxISF\libs\VVISF-GL\.git\objects\ac;..\..\..\addons\ofxISF\libs\VVISF-GL\.git\objects\c8;..\..\..\addons\ofxISF\libs\VVISF-GL\.git\objects\d5;..\..\..\addons\ofxISF\libs\VVISF-GL\.git\objects\d7;..\..\..\addons\ofxISF\libs\VVISF-GL\.git\objects\da;..\..\..\addons\ofxISF\libs\VVISF-GL\.git\objects\e7;..\..\..\addons\ofxISF\libs\VVISF-GL\.git\objects\f4;..\..\..\addons\ofxISF\libs\VVISF-GL\.git\objects\info;..\..\..\addons\ofxISF\libs\VVISF-GL\.git\objects\pack;..\..\..\addons\ofxISF\libs\VVISF-GL\.git\refs;..\..\..\addons\ofxISF\libs\VVISF-GL\.git\refs\heads;..\..\..\addons\ofxISF\libs\VVISF-GL\.git\refs\remotes;..\..\..\addons\ofxISF\libs\VVISF-GL\.git\refs\remotes\origin;..\..\..\addons\ofxISF\libs\VVISF-GL\.git\refs\tags;..\..\..\addons\ofxISF\libs\VVISF-GL\VVGL;..\..\..\addons\ofxISF\libs\VVISF-GL\VVGL\include;..\..\..\addons\ofxISF\libs\VVISF-GL\VVGL\include\stb;..\..\..\addons\ofxISF\libs\VVISF-GL\VVGL\src;..\..\..\addons\ofxISF\libs\VVISF-GL\VVISF;..\..\..\addons\ofxISF\libs\VVISF-GL\VVISF\include;..\..\..\addons\ofxISF\libs\VVISF-GL\VVISF\include\exprtk;..\..\..\addons\ofxISF\libs\VVISF-GL\VVISF\include\nlohmann_json;..\..\..\addons\ofxISF\libs\VVISF-GL\VVISF\src;..\..\..\addons\ofxISF\libs\VVISF-GL\examples;..\..\..\addons\ofxISF\libs\VVISF-GL\external;..\..\..\addons\ofxISF\src;..\..\..\addons\ofxISF\libs\VVISF-GL\VVGL\include\</AdditionalIncludeDirectories>
+			<CompileAs>CompileAsCpp</CompileAs>
+			<ObjectFileName>$(IntDir)</ObjectFileName>
+		</ClCompile>
+		<Link>
+			<IgnoreAllDefaultLibraries>false</IgnoreAllDefaultLibraries>
+			<GenerateDebugInformation>false</GenerateDebugInformation>
+			<SubSystem>Console</SubSystem>
+			<OptimizeReferences>true</OptimizeReferences>
+			<EnableCOMDATFolding>true</EnableCOMDATFolding>
+			<RandomizedBaseAddress>false</RandomizedBaseAddress>
+			<AdditionalDependencies>%(AdditionalDependencies)</AdditionalDependencies>
+			<AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+		</Link>
+		<PostBuildEvent />
+	</ItemDefinitionGroup>
+	<ItemGroup>
+		<ClCompile Include="src\main.cpp" />
+		<ClCompile Include="src\ofApp.cpp" />
+		<ClCompile Include="..\..\..\addons\ofxISF\src\ofxISFScene.cpp" />
+		<ClCompile Include="..\..\..\addons\ofxISF\libs\VVISF-GL\VVGL\src\GLBuffer.cpp" />
+		<ClCompile Include="..\..\..\addons\ofxISF\libs\VVISF-GL\VVGL\src\GLBufferPool.cpp" />
+		<ClCompile Include="..\..\..\addons\ofxISF\libs\VVISF-GL\VVGL\src\GLCachedProperty.cpp" />
+		<ClCompile Include="..\..\..\addons\ofxISF\libs\VVISF-GL\VVGL\src\GLContext.cpp" />
+		<ClCompile Include="..\..\..\addons\ofxISF\libs\VVISF-GL\VVGL\src\GLContextWindowBacking.cpp" />
+		<ClCompile Include="..\..\..\addons\ofxISF\libs\VVISF-GL\VVGL\src\GLCPUToTexCopier.cpp" />
+		<ClCompile Include="..\..\..\addons\ofxISF\libs\VVISF-GL\VVGL\src\GLQtCtxWrapper.cpp" />
+		<ClCompile Include="..\..\..\addons\ofxISF\libs\VVISF-GL\VVGL\src\GLScene.cpp" />
+		<ClCompile Include="..\..\..\addons\ofxISF\libs\VVISF-GL\VVGL\src\GLTexToCPUCopier.cpp" />
+		<ClCompile Include="..\..\..\addons\ofxISF\libs\VVISF-GL\VVGL\src\GLTexToTexCopier.cpp" />
+		<ClCompile Include="..\..\..\addons\ofxISF\libs\VVISF-GL\VVGL\src\VVGL_Geom.cpp" />
+		<ClCompile Include="..\..\..\addons\ofxISF\libs\VVISF-GL\VVGL\src\VVGL_StringUtils.cpp" />
+		<ClCompile Include="..\..\..\addons\ofxISF\libs\VVISF-GL\VVISF\src\ISFAttr.cpp" />
+		<ClCompile Include="..\..\..\addons\ofxISF\libs\VVISF-GL\VVISF\src\ISFDoc.cpp" />
+		<ClCompile Include="..\..\..\addons\ofxISF\libs\VVISF-GL\VVISF\src\ISFPassTarget.cpp" />
+		<ClCompile Include="..\..\..\addons\ofxISF\libs\VVISF-GL\VVISF\src\ISFScene.cpp" />
+		<ClCompile Include="..\..\..\addons\ofxISF\libs\VVISF-GL\VVISF\src\ISFVal.cpp" />
+		<ClCompile Include="..\..\..\addons\ofxISF\libs\VVISF-GL\VVISF\src\VVISF_Base.cpp" />
+		<ClCompile Include="..\..\..\addons\ofxISF\libs\VVISF-GL\VVISF\src\VVISF_StringUtils.cpp" />
+	</ItemGroup>
+	<ItemGroup>
+		<ClInclude Include="src\ofApp.h" />
+		<ClInclude Include="..\..\..\addons\ofxISF\src\ofxISFScene.h" />
+		<ClInclude Include="..\..\..\addons\ofxISF\libs\VVISF-GL\VVGL\include\GLBuffer.hpp" />
+		<ClInclude Include="..\..\..\addons\ofxISF\libs\VVISF-GL\VVGL\include\GLBufferPool.hpp" />
+		<ClInclude Include="..\..\..\addons\ofxISF\libs\VVISF-GL\VVGL\include\GLBuffer_Enums_GLFW.h" />
+		<ClInclude Include="..\..\..\addons\ofxISF\libs\VVISF-GL\VVGL\include\GLCachedProperty.hpp" />
+		<ClInclude Include="..\..\..\addons\ofxISF\libs\VVISF-GL\VVGL\include\GLContext.hpp" />
+		<ClInclude Include="..\..\..\addons\ofxISF\libs\VVISF-GL\VVGL\include\GLContextWindowBacking.hpp" />
+		<ClInclude Include="..\..\..\addons\ofxISF\libs\VVISF-GL\VVGL\include\GLCPUToTexCopier.hpp" />
+		<ClInclude Include="..\..\..\addons\ofxISF\libs\VVISF-GL\VVGL\include\GLQtCtxWrapper.hpp" />
+		<ClInclude Include="..\..\..\addons\ofxISF\libs\VVISF-GL\VVGL\include\GLScene.hpp" />
+		<ClInclude Include="..\..\..\addons\ofxISF\libs\VVISF-GL\VVGL\include\GLTexToCPUCopier.hpp" />
+		<ClInclude Include="..\..\..\addons\ofxISF\libs\VVISF-GL\VVGL\include\GLTexToTexCopier.hpp" />
+		<ClInclude Include="..\..\..\addons\ofxISF\libs\VVISF-GL\VVGL\include\stb\stb_image.h" />
+		<ClInclude Include="..\..\..\addons\ofxISF\libs\VVISF-GL\VVGL\include\VVGL.hpp" />
+		<ClInclude Include="..\..\..\addons\ofxISF\libs\VVISF-GL\VVGL\include\VVGL_Base.hpp" />
+		<ClInclude Include="..\..\..\addons\ofxISF\libs\VVISF-GL\VVGL\include\VVGL_Defines.hpp" />
+		<ClInclude Include="..\..\..\addons\ofxISF\libs\VVISF-GL\VVGL\include\VVGL_Doxygen.hpp" />
+		<ClInclude Include="..\..\..\addons\ofxISF\libs\VVISF-GL\VVGL\include\VVGL_Geom.hpp" />
+		<ClInclude Include="..\..\..\addons\ofxISF\libs\VVISF-GL\VVGL\include\VVGL_HardCodedDefines.hpp" />
+		<ClInclude Include="..\..\..\addons\ofxISF\libs\VVISF-GL\VVGL\include\VVGL_Range.hpp" />
+		<ClInclude Include="..\..\..\addons\ofxISF\libs\VVISF-GL\VVGL\include\VVGL_StringUtils.hpp" />
+		<ClInclude Include="..\..\..\addons\ofxISF\libs\VVISF-GL\VVGL\include\VVGL_Time.hpp" />
+		<ClInclude Include="..\..\..\addons\ofxISF\libs\VVISF-GL\VVISF\include\exprtk\exprtk.hpp" />
+		<ClInclude Include="..\..\..\addons\ofxISF\libs\VVISF-GL\VVISF\include\ISFAttr.hpp" />
+		<ClInclude Include="..\..\..\addons\ofxISF\libs\VVISF-GL\VVISF\include\ISFDoc.hpp" />
+		<ClInclude Include="..\..\..\addons\ofxISF\libs\VVISF-GL\VVISF\include\ISFPassTarget.hpp" />
+		<ClInclude Include="..\..\..\addons\ofxISF\libs\VVISF-GL\VVISF\include\ISFScene.hpp" />
+		<ClInclude Include="..\..\..\addons\ofxISF\libs\VVISF-GL\VVISF\include\ISFVal.hpp" />
+		<ClInclude Include="..\..\..\addons\ofxISF\libs\VVISF-GL\VVISF\include\nlohmann_json\json.hpp" />
+		<ClInclude Include="..\..\..\addons\ofxISF\libs\VVISF-GL\VVISF\include\VVISF.hpp" />
+		<ClInclude Include="..\..\..\addons\ofxISF\libs\VVISF-GL\VVISF\include\VVISF_Base.hpp" />
+		<ClInclude Include="..\..\..\addons\ofxISF\libs\VVISF-GL\VVISF\include\VVISF_Constants.hpp" />
+		<ClInclude Include="..\..\..\addons\ofxISF\libs\VVISF-GL\VVISF\include\VVISF_Doxygen.hpp" />
+		<ClInclude Include="..\..\..\addons\ofxISF\libs\VVISF-GL\VVISF\include\VVISF_Err.hpp" />
+		<ClInclude Include="..\..\..\addons\ofxISF\libs\VVISF-GL\VVISF\include\VVISF_StringUtils.hpp" />
+	</ItemGroup>
+	<ItemGroup>
+		<ProjectReference Include="$(OF_ROOT)\libs\openFrameworksCompiled\project\vs\openframeworksLib.vcxproj">
+			<Project>{5837595d-aca9-485c-8e76-729040ce4b0b}</Project>
+		</ProjectReference>
+	</ItemGroup>
+	<ItemGroup>
+		<ResourceCompile Include="icon.rc">
+			<AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">/D_DEBUG %(AdditionalOptions)</AdditionalOptions>
+			<AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">/D_DEBUG %(AdditionalOptions)</AdditionalOptions>
+			<AdditionalIncludeDirectories>$(OF_ROOT)\libs\openFrameworksCompiled\project\vs</AdditionalIncludeDirectories>
+		</ResourceCompile>
+	</ItemGroup>
+	<Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+	<ProjectExtensions>
+		<VisualStudio>
+			<UserProperties RESOURCE_FILE="icon.rc" />
+		</VisualStudio>
+	</ProjectExtensions>
+</Project>
