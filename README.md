@@ -35,7 +35,8 @@ Examples
 ------------
 ### example-grabber
 ![](images/example-grabber.PNG)
-![](image/example-fft.PNG)
+### example-fft
+![](images/example-fft.PNG)
 
 
 Compatibility
