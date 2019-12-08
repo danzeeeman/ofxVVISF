@@ -1,3 +1,3 @@
-ofxMidi
+ofxGui
 ofxSpout
 ofxVVISF

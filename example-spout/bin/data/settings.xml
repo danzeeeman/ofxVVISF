@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<Auto_Color_Inputs>
+	<Color_Mode>4</Color_Mode>
+	<Color_Count>5</Color_Count>
+	<Base_Color>0, 0.311242, 1, 1</Base_Color>
+	<Boxinator_Inputs>
+		<Rate>0.306122</Rate>
+		<Edge>0.01</Edge>
+		<Blend>0.780612</Blend>
+		<Randomize>0.566327</Randomize>
+		<Gamma>-0.5</Gamma>
+		<Grid_Size>1.5, 11.0969</Grid_Size>
+	</Boxinator_Inputs>
+</Auto_Color_Inputs>

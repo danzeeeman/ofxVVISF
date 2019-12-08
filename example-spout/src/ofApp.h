@@ -3,6 +3,8 @@
 #include "ofMain.h"
 #include "ofxISFScene.h"
 #include "ofxSpout.h"
+#include "ofxGui.h"
+
 class ofApp : public ofBaseApp{
 
 	public:
@@ -22,7 +24,7 @@ class ofApp : public ofBaseApp{
 		void dragEvent(ofDragInfo dragInfo);
 		void gotMessage(ofMessage msg);
 		ofxSpout::Sender sender;
-		
+		ofxPanel gui;
 		ofxISFScene autoColor;
 		ofxISFScene boxinator;
 		ofVideoGrabber grabber;
@@ -37,5 +39,4 @@ class ofApp : public ofBaseApp{
 		ofParameter<float> gamma;
 		ofParameter<ofVec2f> grid;
 		ofParameter<ofFloatColor> baseColor;
-		ofxPanel gui;
 };

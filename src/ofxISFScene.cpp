@@ -5,7 +5,7 @@ void ofxISFScene::setup(string path, float width, float height){
 	GLContextRef    ctxRef = CreateGLContextRefUsing((GLFWwindow*)((ofAppGLFWWindow*)ofGetWindowPtr())->getWindowContext());
 	bp = CreateGlobalBufferPool(ctxRef->newContextSharingMe());
 	renderScene = CreateISFSceneRefUsing(ctxRef->newContextSharingMe());
-	renderScene->useFile(ofToDataPath(path));
+	renderScene->useFile(path);
 	mDoc = renderScene->doc();
 	mGLBuff = CreateRGBATex(Size(width, height), true, GetGlobalBufferPool());
 	mTex.setUseExternalTextureID(mGLBuff->name);
@@ -73,7 +73,7 @@ void ofxISFScene::setInput(string name, ofFloatColor val) {
 }
 void ofxISFScene::setInput(string name, ofTexture val) {
 	ISFAttrRef imageAttr = mDoc->input(name);
-	if (imageAttr == nullptr || imageAttr->type() != ISFValType_Image) {
+	if (imageAttr == nullptr && (imageAttr->type() == ISFValType_Image || imageAttr->type() == ISFValType_AudioFFT || imageAttr->type() == ISFValType_Audio)) {
 		ofLogError() << "INPUT NOT FOUND OR MISMATCHED TYPE" << endl;
 		return;
 	}
@@ -93,6 +93,8 @@ void ofxISFScene::setInput(string name, ofTexture val) {
 	ISFVal value = ISFImageVal(ref);
 	imageAttr->setCurrentVal(value);
 }
+
+
 void ofxISFScene::update(){
 	ofPushView();
 	ofViewport(ofRectangle(0, 0, getWidth(), getHeight()));
