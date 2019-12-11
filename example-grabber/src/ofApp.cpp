@@ -5,7 +5,7 @@ void ofApp::setup(){
 	ofDisableArbTex();
 	ofSetWindowShape(1280, 720);
 	grabber.setup(1280, 720);
-	scene.setup("auto color tune.fs", 1280, 720);
+	scene.setup(ofToDataPath("auto color tune.fs"), 1280, 720);
 	scene.setInput("inputImage", grabber.getTexture());
 	group.setName("Auto Color Inputs");
 	group.add(colorMode.set("Color Mode", 0, 0, 6));

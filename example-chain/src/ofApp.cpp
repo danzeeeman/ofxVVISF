@@ -5,8 +5,8 @@ void ofApp::setup(){
 	ofDisableArbTex();
 	ofSetWindowShape(640, 480);
 	grabber.setup(640, 480);
-	autoColor.setup("auto color tune.fs", 640, 480);
-	boxinator.setup("boxinator.fs", 640, 480);
+	autoColor.setup(ofToDataPath("auto color tune.fs"), 640, 480);
+	boxinator.setup(ofToDataPath("boxinator.fs"), 640, 480);
 	autoColor.setInput("inputImage", grabber.getTexture());
 	boxinator.setInput("inputImage", autoColor.getTextureRef());
 	autoColorGroup.setName("Auto Color Inputs");
