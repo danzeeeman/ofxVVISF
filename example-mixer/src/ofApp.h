@@ -36,6 +36,8 @@ class ofApp : public ofBaseApp{
 		ofParameter<float> gamma;
 		ofParameter<ofVec2f> grid;
 		ofParameter<ofFloatColor> baseColor;
+
+		ofParameter<float> mix;
 		ofxPanel gui;
 
 };
