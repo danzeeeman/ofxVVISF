@@ -7,7 +7,7 @@ void ofApp::setup() {
 	ofSetCircleResolution(80);
 	ofBackground(54, 54, 54);
 
-	bufferSize = 1024;
+	bufferSize = 512;
 
 	ofSoundStreamSettings settings;
 
@@ -40,14 +40,15 @@ void ofApp::setup() {
 	rawAudioRight.setup(vector<float>(bufferSize));
 	rawFft.setup(vector<float>(fft->getBinSize()));
 
-	cout << fft->getBinSize() << endl;
+	ofLog() << fft->getBinSize() << endl;
 
 	mAudio.allocate(bufferSize, 2, GL_RGBA);
 	mFft.allocate(fft->getBinSize(), 1, GL_RGBA);
 
-	//scene.setup(ofToDataPath("Test-Audio.fs"), 512, 512);
+	//scene.setup(ofToDataPath("Spectrogram.fs"), 1920, 1080);
 
-	scene.setup(ofToDataPath("Test-AudioFFT.fs"), 1920, 1080);
+	scene.setup(ofToDataPath("Test-Audio.fs"), 1920, 1080);
+	//scene.setup(ofToDataPath("Test-AudioFFT.fs"), 1920, 1080);
 
 }
 
@@ -63,10 +64,10 @@ void ofApp::update() {
 		colorImage.assign(sum.size() * 4, 0);
 		int k = 0;
 		for (int i = 0; i < sum.size(); i++) {
-			colorImage[k++] = (sum[i] + 4.0) / 8.0;
-			colorImage[k++] = (sum[i] + 4.0) / 8.0;
-			colorImage[k++] = (sum[i] + 4.0) / 8.0;
-			colorImage[k++] = (sum[i] + 4.0) / 8.0;
+			colorImage[k++] = (4.0 * sum[i] + 4.0) / 8.0 ;
+			colorImage[k++] = (4.0 * sum[i] + 4.0) / 8.0 ;
+			colorImage[k++] = (4.0 * sum[i] + 4.0) / 8.0 ;
+			colorImage[k++] = (4.0 * sum[i] + 4.0) / 8.0 ;
 	
 		}
 		mAudio.loadData(&colorImage[0], sum.size() / 2.0, 2, GL_RGBA);
@@ -78,17 +79,16 @@ void ofApp::update() {
 		colorImage.assign(data.size() * 4, 0);
 		int k = 0;
 		for (int i = 0; i < data.size(); i++) {
-			colorImage[k++] = (data[i]);
-			colorImage[k++] = (data[i]);
-			colorImage[k++] = (data[i]);
-			colorImage[k++] = (data[i]);
-
+			colorImage[k++] = (data[i])*255;
+			colorImage[k++] = (data[i])*255;
+			colorImage[k++] = (data[i])*255;
+			colorImage[k++] = (data[i])*255;
 		}
 
 		mFft.loadData(&colorImage[0], data.size(), 1, GL_RGBA);
 	}
 
-	scene.setInput("fftImage", mFft);
+	//scene.setInput("fftImage", mFft);
 	scene.setInput("waveImage", mAudio);
 	scene.update();
 }
@@ -96,8 +96,8 @@ void ofApp::update() {
 //--------------------------------------------------------------
 void ofApp::draw() {
 
-	mAudio.draw(0, 0, mAudio.getWidth(), 10);
-	mFft.draw(0, 10, mAudio.getWidth(), 20);
+	mAudio.draw(0, 0, 1920, 10);
+	mFft.draw(0, 10, 1920, 20);
 	scene.draw(0, 30);
 
 }

@@ -13,7 +13,7 @@
       "NAME" : "waveSize",
       "TYPE" : "float",
       "MAX" : 0.5,
-      "DEFAULT" : 0.5,
+      "DEFAULT" : 0.15,
       "MIN" : 0
     },
     {
@@ -41,7 +41,7 @@ void main() {
 	}
 	
 	vec2		waveLoc = vec2(loc.y,channel);
-	vec4		wave = vec4(IMG_NORM_PIXEL(waveImage, waveLoc).r)+offset;
+	vec4		wave = IMG_NORM_PIXEL(waveImage, waveLoc)+offset;
 	vec4		waveAdd = (1.0 - smoothstep(0.0, waveSize, abs(wave - loc.x)));
 	waveAdd.a = 1.0;
 	gl_FragColor = waveAdd;

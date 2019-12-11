@@ -18,21 +18,21 @@
       "NAME" : "gainFFT",
       "TYPE" : "float",
       "MAX" : 5,
-      "DEFAULT" : 5,
+      "DEFAULT" : 1,
       "MIN" : 0
     },
     {
       "NAME" : "rangeFFT",
       "TYPE" : "float",
       "MAX" : 1,
-      "DEFAULT" : 0.9,
+      "DEFAULT" : 0.5,
       "MIN" : 0
     },
     {
       "NAME" : "waveSize",
       "TYPE" : "float",
       "MAX" : 0.5,
-      "DEFAULT" : 0.05,
+      "DEFAULT" : 0.025,
       "MIN" : 0
     },
     {

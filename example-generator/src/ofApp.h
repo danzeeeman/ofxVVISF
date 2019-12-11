@@ -1,7 +1,8 @@
 #pragma once
 
 #include "ofMain.h"
-
+#include "ofxGui.h"
+#include "ofxISFScene.h"
 class ofApp : public ofBaseApp{
 
 	public:
@@ -21,4 +22,14 @@ class ofApp : public ofBaseApp{
 		void dragEvent(ofDragInfo dragInfo);
 		void gotMessage(ofMessage msg);
 		
+
+		ofxPanel gui;
+		ofxISFScene generator;
+		ofParameterGroup group;
+		ofParameter<float> width;
+		ofParameter<ofVec2f> offset;
+		ofParameter<ofVec2f> splitPos;
+		ofParameter<ofColor> colorOne;
+		ofParameter<ofColor> colorTwo;
+
 };
