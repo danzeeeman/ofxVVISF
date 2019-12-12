@@ -21,6 +21,7 @@ void ofApp::setup() {
 	// settings.device = devices[0];
 
 	// or get the default device for an specific api:
+	// this is a work around for windows
 	settings.setApi(ofSoundDevice::Api::MS_DS);
 
 	settings.setInListener(this);
@@ -32,10 +33,6 @@ void ofApp::setup() {
 
 	fft = ofxFft::create(bufferSize, OF_FFT_WINDOW_HAMMING);
 
-	// To use FFTW, try:
-	//fft = ofxFft::create(bufferSize, OF_FFT_WINDOW_HAMMING, OF_FFT_FFTW);
-
-
 	rawAudioLeft.setup(vector<float>(bufferSize));
 	rawAudioRight.setup(vector<float>(bufferSize));
 	rawFft.setup(vector<float>(fft->getBinSize()));
@@ -45,16 +42,29 @@ void ofApp::setup() {
 	mAudio.allocate(bufferSize, 2, GL_RGBA);
 	mFft.allocate(fft->getBinSize(), 1, GL_RGBA);
 
-	//scene.setup(ofToDataPath("Spectrogram.fs"), 1920, 1080);
+
+
+	//
+	// This example is really 3 examples.  It shows how to use audio 
+	// as a source.  
+	//
 
 	scene.setup(ofToDataPath("Test-Audio.fs"), 1920, 1080);
-	//scene.setup(ofToDataPath("Test-AudioFFT.fs"), 1920, 1080);
-
+	//
+	//  Comment out line 51 uncomment the line 54 and line 95 to see how the FFT works
+	// scene.setup(ofToDataPath("Test-AudioFFT.fs"), 1920, 1080);
+	//
+	//  Comment out line 51 and line 54 and unomment line 57 and line 95 to use the Spectrogram ISF
+	// scene.setup(ofToDataPath("Spectrogram.fs"), 1920, 1080);
+	//
 }
 
 //--------------------------------------------------------------
 void ofApp::update() {
 	if (rawAudioLeft.swapFront() && rawAudioRight.swapFront()) {
+		//
+		// This generates a stereo waveImage texture for the ISFScene
+		//
 		vector<float> sum;
 		vector<float>& dataLeft = rawAudioLeft.getFront();
 		vector<float>& dataRight = rawAudioRight.getFront();
@@ -64,6 +74,7 @@ void ofApp::update() {
 		colorImage.assign(sum.size() * 4, 0);
 		int k = 0;
 		for (int i = 0; i < sum.size(); i++) {
+			// center around 0.5
 			colorImage[k++] = (4.0 * sum[i] + 4.0) / 8.0 ;
 			colorImage[k++] = (4.0 * sum[i] + 4.0) / 8.0 ;
 			colorImage[k++] = (4.0 * sum[i] + 4.0) / 8.0 ;
@@ -74,11 +85,15 @@ void ofApp::update() {
 	
 	}
 	if (rawFft.swapFront()) {
+		//
+		// This generates the fftImage texture for the ISFScene
+		//
 		vector<float>& data = rawFft.getFront();
 		vector<float> colorImage;
 		colorImage.assign(data.size() * 4, 0);
 		int k = 0;
 		for (int i = 0; i < data.size(); i++) {
+			//scale
 			colorImage[k++] = (data[i])*255;
 			colorImage[k++] = (data[i])*255;
 			colorImage[k++] = (data[i])*255;
