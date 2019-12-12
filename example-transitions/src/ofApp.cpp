@@ -5,14 +5,23 @@ void ofApp::setup() {
 	ofSetVerticalSync(true);
 	ofSetFrameRate(60);
 	ofDisableArbTex();
-	ofSetWindowShape(640, 480);
+	ofSetWindowShape(640*2, 480*2);
 	grabber.setup(640, 480);
 	autoColor.setup(ofToDataPath("auto color tune.fs"), 640, 480);
 	boxinator.setup(ofToDataPath("boxinator.fs"), 640, 480);
 	transition.setup(ofToDataPath("wiperight.fs"), 640, 480);
+	transitionTwo.setup(ofToDataPath("wiperight.fs"), 640, 480);
 
 	autoColor.setInput("inputImage", grabber.getTexture());
 	boxinator.setInput("inputImage", grabber.getTexture());
+	
+	transition.setInput("startImage", boxinator.getTexture());
+	transition.setInput("endImage", grabber.getTexture());
+
+	transitionTwo.setInput("startImage", grabber.getTexture());
+	transitionTwo.setInput("endImage", autoColor.getTexture());
+	
+	
 
 	autoColorGroup.setName("Auto Color Inputs");
 	autoColorGroup.add(colorMode.set("Color Mode", 0, 0, 6));
@@ -35,8 +44,7 @@ void ofApp::setup() {
 	transitionGroup.add(progress.set("progress", 0.75, 0, 1));
 	gui.add(transitionGroup);
 
-	transition.setInput("startImage", autoColor.getTexture());
-	transition.setInput("endImage", boxinator.getTexture());
+
 
 }
 
@@ -55,19 +63,22 @@ void ofApp::update() {
 	boxinator.setInput("grid", grid.get());
 
 	transition.setInput("progress", progress.get());
-
+	transitionTwo.setInput("progress", progress.get());
 
 	autoColor.update();
 	boxinator.update();
 	transition.update();
-	ofLog() << "update " << ofGetTimestampString() << endl;
+	transitionTwo.update();
 
 }
 
 //--------------------------------------------------------------
 void ofApp::draw() {
 	gui.draw();
-	transition.draw(0, 0);
+	autoColor.draw(0, 0);
+	boxinator.draw(640, 0);
+	transition.draw(0, 480);
+	transitionTwo.draw(640, 480);
 
 	gui.draw();
 }

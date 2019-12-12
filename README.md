@@ -35,9 +35,27 @@ Examples
 ------------
 ### example-grabber
 ![](images/example-grabber.PNG)
+This example shows you how to use a ofVideoGrabber as a input source for an ISFScene.
+
 ### example-fft
 ![](images/example-fft.PNG)
+This example shows you how to use audio as an input source for an ISFScene.  It uses [ofxFft](https://github.com/kylemcdonald/ofxFft) to generate the ```fftImage``` and the raw waveform to generate the ```waveImage```.  See the comments in the code to follow along.
 
+### example-chain
+![](images/example-chain.PNG)
+This example shows you how to chain multiple ISFScenes together in a VFX chain.
+
+### example-mixer
+![](images/example-mixer.PNG)
+This example shows you how to simply mix between two ISFScenes
+
+### example-generator
+![](images/example-generator.PNG)
+This example shows you how to use an ISFScene with a generator.
+
+### example-transitions
+![](images/example-transitions.PNG)
+This example shows you how to use multiple ISFScenes to feed a transition.
 
 Compatibility
 ------------

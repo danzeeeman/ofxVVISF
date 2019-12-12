@@ -23,14 +23,15 @@ class ofApp : public ofBaseApp{
 		void dragEvent(ofDragInfo dragInfo);
 		void gotMessage(ofMessage msg);
 
-		ofxISFScene transition;
-
 		ofxPanel gui;
 		ofParameterGroup transitionGroup;
 		ofParameter<float> progress;
 
+		ofxISFScene transition;
+		ofxISFScene transitionTwo;
 		ofxISFScene autoColor;
 		ofxISFScene boxinator;
+
 		ofVideoGrabber grabber;
 		ofParameterGroup autoColorGroup;
 		ofParameterGroup boxGroup;
