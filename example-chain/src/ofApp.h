@@ -24,6 +24,7 @@ class ofApp : public ofBaseApp{
 		
 		ofxISFScene autoColor;
 		ofxISFScene boxinator;
+		ofxISFScene boxinatorTwo;
 		ofVideoGrabber grabber;
 		ofParameterGroup autoColorGroup;
 		ofParameterGroup boxGroup;

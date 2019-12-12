@@ -8,7 +8,7 @@ void ofApp::setup(){
 	autoColor.setup("auto color tune.fs", 640, 480);
 	boxinator.setup("boxinator.fs", 640, 480);
 	autoColor.setInput("inputImage", grabber.getTexture());
-	boxinator.setInput("inputImage", autoColor.getTextureRef());
+	boxinator.setInput("inputImage", autoColor.getTexture());
 	autoColorGroup.setName("Auto Color Inputs");
 	autoColorGroup.add(colorMode.set("Color Mode", 0, 0, 6));
 	autoColorGroup.add(colorCount.set("Color Count", 3, 1, 16));

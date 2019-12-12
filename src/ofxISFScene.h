@@ -22,7 +22,7 @@ class ofxISFScene{
 		return mTex.getWidth();
 	}
 
-	ofTexture getTextureRef();
+	ofTexture getTexture();
 
 	protected:
         VVISF::ISFDocRef mDoc;

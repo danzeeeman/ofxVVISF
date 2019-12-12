@@ -3,12 +3,14 @@
 //--------------------------------------------------------------
 void ofApp::setup(){
 	ofDisableArbTex();
-	ofSetWindowShape(640, 480);
+	ofSetWindowShape(640*2, 480*2);
 	grabber.setup(640, 480);
 	autoColor.setup(ofToDataPath("auto color tune.fs"), 640, 480);
 	boxinator.setup(ofToDataPath("boxinator.fs"), 640, 480);
-	autoColor.setInput("inputImage", grabber.getTexture());
-	boxinator.setInput("inputImage", autoColor.getTextureRef());
+	boxinatorTwo.setup(ofToDataPath("boxinator.fs"), 640, 480);
+	autoColor.setInput("inputImage", boxinator.getTexture());
+	boxinator.setInput("inputImage", grabber.getTexture());
+	boxinatorTwo.setInput("inputImage", autoColor.getTexture());
 	autoColorGroup.setName("Auto Color Inputs");
 	autoColorGroup.add(colorMode.set("Color Mode", 0, 0, 6));
 	autoColorGroup.add(colorCount.set("Color Count", 3, 1, 16));
@@ -40,11 +42,15 @@ void ofApp::update(){
 	boxinator.setInput("grid", grid.get());
 	autoColor.update();
 	boxinator.update();
+	boxinatorTwo.update();
 }
 
 //--------------------------------------------------------------
 void ofApp::draw(){
-	boxinator.draw(0, 0);
+	boxinatorTwo.draw(0, 0);
+	boxinator.draw(640, 0);
+	autoColor.draw(640, 480);
+	grabber.draw(0, 480);
 	gui.draw();
 }
 

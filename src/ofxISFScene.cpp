@@ -31,7 +31,7 @@ void ofxISFScene::setInput(string name, bool val) {
 	intVal->setCurrentVal(value);
 }
 
-ofTexture ofxISFScene::getTextureRef() {
+ofTexture ofxISFScene::getTexture() {
 	return mTex;
 }
 
