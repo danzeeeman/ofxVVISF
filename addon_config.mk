@@ -82,34 +82,34 @@ common:
 	# ADDON_LIBS += libs/opencv/lib/linuxarmv6l/libopencv_calib3d.a
 	# ...
 
-	ADDON_INCLUDES_EXCLUDE+= libs/VVISF-GL/examples/%
-	ADDON_INCLUDES_EXCLUDE+= libs/VVISF-GL/external/%
-	ADDON_INCLUDES_EXCLUDE+= libs/VVISF-GL/VVISF/include/VVISF_Qt_global.hpp
-	ADDON_INCLUDES_EXCLUDE+= libs/VVISF-GL/VVISF/include/VVISF_Win_global.hpp
-	ADDON_INCLUDES_EXCLUDE+= libs/VVISF-GL/VVGL/include/GLBuffer_Enums_Mac.h
-	ADDON_INCLUDES_EXCLUDE+= libs/VVISF-GL/VVGL/include/GLBuffer_Enums_Qt.h
-	ADDON_INCLUDES_EXCLUDE+= libs/VVISF-GL/VVGL/include/GLBuffer_Enums_RPI.h
-	ADDON_INCLUDES_EXCLUDE+= libs/VVISF-GL/VVGL/include/GLBuffer_Enums_Win.h
-	ADDON_INCLUDES_EXCLUDE+= libs/VVISF-GL/VVGL/include/GLBuffer_Enums_IOS.h
-	ADDON_INCLUDES_EXCLUDE+= libs/VVISF-GL/VVGL/include/GLBufferPool_CocoaAdditions.h
-	ADDON_INCLUDES_EXCLUDE+= libs/VVISF-GL/VVGL/include/vvgl_qt_global.h
-	ADDON_INCLUDES_EXCLUDE+= libs/VVISF-GL/VVGL/include/VVGL_Win_global.hpp
+	ADDON_INCLUDES_EXCLUDE = libs/VVISF-GL/examples/%
+	ADDON_INCLUDES_EXCLUDE += libs/VVISF-GL/external/%
+	ADDON_INCLUDES_EXCLUDE += libs/VVISF-GL/VVISF/include/VVISF_Qt_global.hpp
+	ADDON_INCLUDES_EXCLUDE += libs/VVISF-GL/VVISF/include/VVISF_Win_global.hpp
+	ADDON_INCLUDES_EXCLUDE += libs/VVISF-GL/VVGL/include/GLBuffer_Enums_Mac.h
+	ADDON_INCLUDES_EXCLUDE += libs/VVISF-GL/VVGL/include/GLBuffer_Enums_Qt.h
+	ADDON_INCLUDES_EXCLUDE += libs/VVISF-GL/VVGL/include/GLBuffer_Enums_RPI.h
+	ADDON_INCLUDES_EXCLUDE += libs/VVISF-GL/VVGL/include/GLBuffer_Enums_Win.h
+	ADDON_INCLUDES_EXCLUDE += libs/VVISF-GL/VVGL/include/GLBuffer_Enums_IOS.h
+	ADDON_INCLUDES_EXCLUDE += libs/VVISF-GL/VVGL/include/GLBufferPool_CocoaAdditions.h
+	ADDON_INCLUDES_EXCLUDE += libs/VVISF-GL/VVGL/include/vvgl_qt_global.h
+	ADDON_INCLUDES_EXCLUDE += libs/VVISF-GL/VVGL/include/VVGL_Win_global.hpp
 	
-	ADDON_SOURCES_EXCLUDE+= libs/VVISF-GL/external/%
-	ADDON_SOURCES_EXCLUDE+= libs/VVISF-GL/examples/%
-	ADDON_SOURCES_EXCLUDE+= libs/VVISF-GL/VVISF/src/VVISF_Base.mm
-	ADDON_SOURCES_EXCLUDE+= libs/VVISF-GL/VVISF/include/VVISF_Qt_global.hpp
-	ADDON_SOURCES_EXCLUDE+= libs/VVISF-GL/VVISF/include/VVISF_Win_global.hpp
-	ADDON_SOURCES_EXCLUDE+= libs/VVISF-GL/VVGL/include/GLBuffer_Enums_Mac.h
-	ADDON_SOURCES_EXCLUDE+= libs/VVISF-GL/VVGL/include/GLBuffer_Enums_IOS.h
-	ADDON_SOURCES_EXCLUDE+= libs/VVISF-GL/VVGL/include/GLBuffer_Enums_Qt.h
-	ADDON_SOURCES_EXCLUDE+= libs/VVISF-GL/VVGL/include/GLBuffer_Enums_RPI.h
-	ADDON_SOURCES_EXCLUDE+= libs/VVISF-GL/VVGL/include/GLBuffer_Enums_Win.h
-	ADDON_SOURCES_EXCLUDE+= libs/VVISF-GL/VVGL/include/GLBufferPool_CocoaAdditions.h
-	ADDON_SOURCES_EXCLUDE+= libs/VVISF-GL/VVGL/include/vvgl_qt_global.h
-	ADDON_SOURCES_EXCLUDE+= libs/VVISF-GL/VVGL/include/VVGL_Win_global.hpp
-	ADDON_SOURCES_EXCLUDE+= libs/VVISF-GL/VVGL/src/GLBufferPool_CocoaAdditions.mm
-	ADDON_SOURCES_EXCLUDE+= libs/VVISF-GL/VVGL/src/GLContext.mm
+	ADDON_SOURCES_EXCLUDE = libs/VVISF-GL/external/%
+	ADDON_SOURCES_EXCLUDE += libs/VVISF-GL/examples/%
+	ADDON_SOURCES_EXCLUDE += libs/VVISF-GL/VVISF/src/VVISF_Base.mm
+	ADDON_SOURCES_EXCLUDE += libs/VVISF-GL/VVISF/include/VVISF_Qt_global.hpp
+	ADDON_SOURCES_EXCLUDE += libs/VVISF-GL/VVISF/include/VVISF_Win_global.hpp
+	ADDON_SOURCES_EXCLUDE += libs/VVISF-GL/VVGL/include/GLBuffer_Enums_Mac.h
+	ADDON_SOURCES_EXCLUDE += libs/VVISF-GL/VVGL/include/GLBuffer_Enums_IOS.h
+	ADDON_SOURCES_EXCLUDE += libs/VVISF-GL/VVGL/include/GLBuffer_Enums_Qt.h
+	ADDON_SOURCES_EXCLUDE += libs/VVISF-GL/VVGL/include/GLBuffer_Enums_RPI.h
+	ADDON_SOURCES_EXCLUDE += libs/VVISF-GL/VVGL/include/GLBuffer_Enums_Win.h
+	ADDON_SOURCES_EXCLUDE += libs/VVISF-GL/VVGL/include/GLBufferPool_CocoaAdditions.h
+	ADDON_SOURCES_EXCLUDE += libs/VVISF-GL/VVGL/include/vvgl_qt_global.h
+	ADDON_SOURCES_EXCLUDE += libs/VVISF-GL/VVGL/include/VVGL_Win_global.hpp
+	ADDON_SOURCES_EXCLUDE += libs/VVISF-GL/VVGL/src/GLBufferPool_CocoaAdditions.mm
+	ADDON_SOURCES_EXCLUDE += libs/VVISF-GL/VVGL/src/GLContext.mm
 	
 
 	
