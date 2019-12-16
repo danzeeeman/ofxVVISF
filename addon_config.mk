@@ -62,7 +62,9 @@ common:
 	# ADDON_OBJC_SOURCES = 
 	
 	# derines that will be passed to the compiler when including this addon
-	# ADDON_DEFINES
+	# 
+	
+	ADDON_DEFINES = VVGL_SDK_GLFW
 	
 	# some addons need resources to be copied to the bin/data folder of the project
 	# specify here any files that need to be copied, you can use wildcards like * and ?
@@ -110,7 +112,11 @@ common:
 	ADDON_SOURCES_EXCLUDE += libs/VVISF-GL/VVGL/include/VVGL_Win_global.hpp
 	ADDON_SOURCES_EXCLUDE += libs/VVISF-GL/VVGL/src/GLBufferPool_CocoaAdditions.mm
 	ADDON_SOURCES_EXCLUDE += libs/VVISF-GL/VVGL/src/GLContext.mm
+	ADDON_SOURCES_EXCLUDE += libs/VVISF-GL/VVGL/src/GLQtCtxWrapper.cpp
 	
+
+	ADDON_LIBS_EXCLUDE = libs/VVISF_GL/external/%
+	ADDON_LIBS_EXCLUDE += libs/VVISF_GL/examples/%
 
 	
 linux64:
