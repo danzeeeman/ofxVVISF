@@ -59,15 +59,15 @@ This example shows you how to use multiple ISFScenes to feed a transition.
 
 Compatibility
 ------------
-tested with 0.10+ 
+tested with 0.10+ VS2017
 
 Known issues
 ------------
-None
+Project generator might not work on macOS.  testers welcome! 
 
 Version history
 ------------
-
+0.0.1 initial release 
 
 
 
