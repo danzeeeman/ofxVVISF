@@ -1,6 +1,7 @@
 #include "ofxISFScene.h"
 using namespace VVGL;
 using namespace VVISF;
+
 void ofxISFScene::setup(string path, float width, float height){
 	GLContextRef    ctxRef = CreateGLContextRefUsing((GLFWwindow*)((ofAppGLFWWindow*)ofGetWindowPtr())->getWindowContext());
 	bp = CreateGlobalBufferPool(ctxRef->newContextSharingMe());
@@ -84,9 +85,9 @@ void ofxISFScene::setInput(string name, ofTexture val) {
 		(GLBuffer::InternalFormat) val.texData.glInternalFormat,
 		(GLBuffer::PixelFormat) val.texData.glInternalFormat,
 		GLBuffer::PT_UByte,
-		Size(val.texData.width, val.texData.height),
+		VVGL::Size(val.texData.width, val.texData.height),
 		val.texData.bFlipTexture,
-		Rect(0, 0, val.texData.width, val.texData.height),
+		VVGL::Rect(0, 0, val.texData.width, val.texData.height),
 		NULL,
 		NULL);
 
