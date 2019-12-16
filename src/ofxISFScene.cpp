@@ -8,7 +8,7 @@ void ofxISFScene::setup(string path, float width, float height){
 	renderScene = CreateISFSceneRefUsing(ctxRef->newContextSharingMe());
 	renderScene->useFile(path);
 	mDoc = renderScene->doc();
-	mGLBuff = CreateRGBATex(Size(width, height), true, GetGlobalBufferPool());
+	mGLBuff = CreateRGBATex(VVGL::Size(width, height), true, GetGlobalBufferPool());
 	mTex.setUseExternalTextureID(mGLBuff->name);
 	mTex.texData.textureTarget = mGLBuff->desc.target;
 	mTex.texData.width = mGLBuff->size.width;
