@@ -15,11 +15,11 @@
 # and the PG will write to the console the kind of error and in which line it is
 
 meta:
-	ADDON_NAME = ofxAddonTemplate
+	ADDON_NAME = ofxVVISF
 	ADDON_DESCRIPTION = ofxAddonTemplate is amazing!
-	ADDON_AUTHOR = @yournamehere
-	ADDON_TAGS = "addon" "template"
-	ADDON_URL = http://github.com/yournamehere/ofxAddonTemplate
+	ADDON_AUTHOR = @danzeeeman
+	ADDON_TAGS = "addon" "ISF" "shaders"
+	ADDON_URL = http://github.com/danzeeeman/ofxVVISF
 
 common:
 	# dependencies with other addons, a list of them separated by spaces 
@@ -115,8 +115,7 @@ common:
 	ADDON_SOURCES_EXCLUDE += libs/VVISF-GL/VVGL/src/GLQtCtxWrapper.cpp
 	
 
-	ADDON_LIBS_EXCLUDE = libs/VVISF_GL/external/%
-	ADDON_LIBS_EXCLUDE += libs/VVISF_GL/examples/%
+
 
 	
 linux64:
@@ -138,6 +137,8 @@ android/armeabi-v7a:
 osx:
 	# osx/iOS only, any framework that should be included in the project
 	# ADDON_FRAMEWORKS =
+	ADDON_FRAMEWORKS_EXCLUDE = Syphon.framework
+	ADDON_FRAMEWORKS_EXCLUDE += MGSFragaria.framework
 ios:
 tvos:
 
